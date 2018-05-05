@@ -27,7 +27,7 @@ enableRobotsTXT = true
 author = "Sarah R. Salter"
 intro = "Data Scientist."
 description = "Exploring, Learning, & Creating Things Related to Data Science <br/>"
-authorimage = "my_headshot4.JPG"
+authorimage = "StackOverflowPic.JPG"
 dateformat = "Jan 2, 2006"
 
 ## Site Meta Settings
