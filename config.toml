@@ -38,9 +38,9 @@ keywords = "minimalist,blog,goa,hugo,developer"
 ## Social Accounts
 [params.social]
 github = "sarahsalter"
-linkedin = "<sarahsalter>"
-twitter = "<sweettsarahh>"
-stackoverflow = "<username>"
+linkedin = "sarahsalter"
+twitter = "sweettsarahh"
+stackoverflow = "sarah.salter226@gmail.com"
 email = "sarah@sarahrsalter.com"
 
 ## Extras
