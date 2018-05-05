@@ -27,7 +27,7 @@ enableRobotsTXT = true
 author = "Sarah R. Salter"
 intro = "Data Science Enthusiast. Aspiring Statistical Ninja."
 description = "Now @Pied Piper. Previously @Hacker Hostel, @Bachmanity and @Aviato. <br/> \"What is F times 5? It's Fleventy-five.\""
-authorimage = "headshot.jpg"
+authorimage = "my_headshot.jpg"
 dateformat = "Jan 2, 2006"
 
 ## Site Meta Settings
