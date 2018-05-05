@@ -26,8 +26,8 @@ enableRobotsTXT = true
 [params]
 author = "Sarah R. Salter"
 intro = "Data Science Enthusiast. Aspiring Statistical Ninja."
-description = "Johns Hopkins University Biostatistics Student <br/> \"What is F times 5? It's Fleventy-five.\""
-authorimage = "my_headshot4.jpg"
+description = "Johns Hopkins University Biostatistics Student <br/> Exploring, Learning, & Creating"
+authorimage = "my_headshot4.JPG"
 dateformat = "Jan 2, 2006"
 
 ## Site Meta Settings
