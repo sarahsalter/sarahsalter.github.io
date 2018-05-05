@@ -26,7 +26,7 @@ enableRobotsTXT = true
 [params]
 author = "Sarah R. Salter"
 intro = "Data Science Enthusiast. Aspiring Statistical Ninja."
-description = "Johns Hopkins University Biostatistics Student <br/> Exploring, Learning, & Creating"
+description = "Johns Hopkins University Biostatistics Student <br/> Exploring, Learning, & Creating Things Related to Data Science"
 authorimage = "my_headshot4.JPG"
 dateformat = "Jan 2, 2006"
 
