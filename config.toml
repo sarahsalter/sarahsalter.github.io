@@ -25,8 +25,8 @@ enableRobotsTXT = true
 ## Site Settings
 [params]
 author = "Sarah R. Salter"
-intro = "Data Science Enthusiast. Aspiring Statistical Ninja."
-description = "Johns Hopkins University Biostatistics Student <br/> Exploring, Learning, & Creating Things Related to Data Science"
+intro = "Data Scientist."
+description = "Exploring, Learning, & Creating Things Related to Data Science <br/>"
 authorimage = "my_headshot4.JPG"
 dateformat = "Jan 2, 2006"
 
@@ -37,15 +37,11 @@ keywords = "minimalist,blog,goa,hugo,developer"
 
 ## Social Accounts
 [params.social]
-github = "<username>"
-instagram = "<username>"
-xing = "<username>"
-linkedin = "<username>"
-twitter = "<username>"
-facebook = "<username>"
-google = "<username>"
+github = "sarahsalter"
+linkedin = "<sarahsalter>"
+twitter = "<sweettsarahh>"
 stackoverflow = "<username>"
-email = "you@example.com"
+email = "sarah@sarahrsalter.com"
 
 ## Extras
 [params.extra]
