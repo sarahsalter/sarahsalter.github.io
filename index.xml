@@ -6,10 +6,20 @@
     <description>Recent content on Sarah Salter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 03 Oct 2016 16:59:13 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 06 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/./index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hope This Works</title>
+      <link>/./post/hope-this-works/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/./post/hope-this-works/</guid>
+      <description>Post About Cars colnames(cars) ## [1] &amp;quot;speed&amp;quot; &amp;quot;dist&amp;quot; hist(cars$speed) Hoping that this will print.
+ </description>
+    </item>
     
     <item>
       <title>Hooli’s Hot New Hardware</title>

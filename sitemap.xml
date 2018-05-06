@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/./post/hope-this-works/</loc>
+    <lastmod>2018-05-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/./blog/third/</loc>
     <lastmod>2016-10-03T16:59:13-04:00</lastmod>
   </url>
@@ -33,13 +38,13 @@
   </url>
   
   <url>
-    <loc>/./tags/about/</loc>
+    <loc>/./categories/about/</loc>
     <lastmod>2016-10-02T22:55:05-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/./categories/about/</loc>
+    <loc>/./tags/about/</loc>
     <lastmod>2016-10-02T22:55:05-04:00</lastmod>
     <priority>0</priority>
   </url>
@@ -123,6 +128,12 @@
   </url>
   
   <url>
+    <loc>/./post/</loc>
+    <lastmod>2018-05-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/./categories/propaganda/</loc>
     <lastmod>2016-10-03T16:59:13-04:00</lastmod>
     <priority>0</priority>
@@ -148,7 +159,7 @@
   
   <url>
     <loc>/./</loc>
-    <lastmod>2016-10-03T16:59:13-04:00</lastmod>
+    <lastmod>2018-05-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

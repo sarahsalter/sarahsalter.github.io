@@ -1,0 +1,19 @@
+---
+title: "Hope This Works"
+author: "Sarah Salter"
+date: '2018-05-06'
+comments: no
+showcomments: yes
+showpagemeta: yes
+slug: hope-this-works
+tags: []
+categories: []
+---
+
+##Post About Cars
+```{r}
+colnames(cars)
+hist(cars$speed)
+```
+
+Hoping that this will print. 
