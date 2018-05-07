@@ -1,10 +1,14 @@
 ---
 title: "How To Blog"
 author: "Sarah Salter"
-date: "May 31, 2018"
+date: '2018-05-31'
+slug: new-post
 output: html_document
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
+comments: no
+showcomments: yes
+showpagemeta: yes
 ---
 
 ```{r setup, include=FALSE}
