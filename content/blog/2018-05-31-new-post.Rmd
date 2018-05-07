@@ -9,6 +9,7 @@ tags: ["R Markdown", "plot", "regression"]
 comments: no
 showcomments: yes
 showpagemeta: yes
+description: "A post about how to make a blog using blogdown"
 ---
 
 ```{r setup, include=FALSE}
