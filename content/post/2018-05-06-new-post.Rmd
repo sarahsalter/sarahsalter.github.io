@@ -1,0 +1,12 @@
+---
+title: New Post
+author: Sarah Salter
+date: '2018-05-06'
+slug: new-post
+categories: []
+tags: []
+comments: no
+showcomments: yes
+showpagemeta: yes
+---
+

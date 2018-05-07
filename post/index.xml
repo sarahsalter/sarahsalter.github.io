@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Sarah Salter</title>
+    <link>/./post/</link>
+    <description>Recent content in Posts on Sarah Salter</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 06 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/./post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hope This Works</title>
+      <link>/./post/hope-this-works/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/./post/hope-this-works/</guid>
+      <description>Post About Cars colnames(cars) ## [1] &amp;quot;speed&amp;quot; &amp;quot;dist&amp;quot; hist(cars$speed) Hoping that this will print.
+ </description>
+    </item>
+    
+    <item>
+      <title>New Post</title>
+      <link>/./post/new-post/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/./post/new-post/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
