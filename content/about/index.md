@@ -10,9 +10,12 @@ title = "About"
 showpagemeta = false
 +++
 
-Erlich administers the Hacker Hostel, a tech incubator where Richard, Big Head, Dinesh, and Gilfoyle live and work in exchange for 10 percent of their potential businesses. Erlich clings to his glory days, when he sold aviation start-up Aviato, a move that, at least in his mind, qualifies him to be a svengali lording over other tech nerds. He still drives a car emblazoned with multiple Aviato logos and smokes copious amounts of weed.[1]
+Hi! My name is Sarah Salter :). I am currently a Biostatistics graduate student at Johns Hopkins School of Public Health.  I received my undergraduate training in Mathematical Science and Computer Science, and my graduate training in Biostatistics and Data Science. 
 
-In Fiduciary Duties, a drunk Richard makes Erlich a Pied Piper board member, a decision he later regrets.
+This blog is intended for data science enthusiasts, aspiring statistical ninjas, R-users, insatiable learners, and/or anyone that appreciates random pieces of information. I hope to share with you tools and insights into some of my experiences as a data scientist/statistician, as well as some of the interesting projects that I have worked on.
 
-In Two Days of the Condor, it is revealed that Erlich no longer codes due to carpal tunnel syndrome.
+One of the most valuable pieces of information I have ever learned, is that only when a person acknowledges the gaps in their understanding can they successfully gain the highest amount of intuition. Although I am still learning, what I lack in experience I compensate for in my commitment to obtain the deepest amount of intuition in everything that I learn. 
 
+Learning is always more fun when it is collaborative, so please feel free to comment on any of my posts if you want to have further discussions. I also encourage you to say hello on my Twitter account (linked on the homepage of this website). I will definitely share/re-post interesting finding/articiles to read on that forum.   
+
+Thank you so much for checking out my blog! Looking forward to learning together. 
