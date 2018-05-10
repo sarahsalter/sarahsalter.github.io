@@ -18,4 +18,4 @@ Learning is a beautiful experience. In my professional/educational journies I ha
 
 I am greatly looking forward to learning together! Thank you so much for checking out my blog!
 
-P.S.- I encourage you to say hello on my Twitter account (linked on the homepage of this website). I will definitely share/re-post interesting finding/articiles to read on that forum.   
+P.S.- I encourage you to say hello on my Twitter account (linked on the homepage of this website). I will definitely share/re-post interesting findings/articiles to read on that forum.   
