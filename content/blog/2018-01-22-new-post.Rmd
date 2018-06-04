@@ -2,9 +2,7 @@
 title: "DATA MANIPULATION USING DPLYR"
 author: "Sarah Salter"
 date: '2018-01-22'
-output:
-  html_document:
-    df_print: paged
+output: html_document
 comments: no
 tags: ["R Markdown", "dplyr", "data manipulation"]
 categories: R
