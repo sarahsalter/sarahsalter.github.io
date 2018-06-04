@@ -1,0 +1,462 @@
+---
+title: "DATA MANIPULATION USING DPLYR"
+author: "Sarah Salter"
+date: '2018-01-22'
+output: html_document
+comments: no
+categories: R
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction to Dplyr
+[Dplyr](https://cran.r-project.org/web/packages/dplyr/dplyr.pdf) is an R package, designed for the purpose of manipulating data. This package is the creation of Hadley Wickem, and it offers many advantageous features. For those of you familiar with [Plyr](https://cran.r-project.org/web/packages/plyr/plyr.pdf), Dplyr is the next iteration, and it specifically focuses only on dataframes.    
+
+
+# Why You Should Use It
+
+Efficiency. Simplicity. Speed. 
+
+Dplyr provides tools to allow for increased speed, smaller utilization of memory, and efficiency/simplicity in writing functions. For instance:
+
++ **Speed**: dplyr functions are often faster than some of the more traditional functions in R.  
++ **Direct connection to external databases**: dplyr allows you to access your database without reading it entirely into memory.
++ **Syntax simplicity**: dplyr provides functions, in the form of simple “verbs”, to help tackle the most common data manipulation tasks and help you translate your thoughts into code.
++ **Function chaining**: dplyr incorporates pipe operators, %>%, that allow functions to be chained together. This allows users to write code in the order that they want the functions performed, rather than a nested format, in which inner most functions are performed first before outmost functions. In addition to improved ease of reading code, piping also reduces the amount of intermittent objects needed to complete the task.  
+
+For more details regarding the benefits to dplyr, I recommend checking out this [blog post](http://zevross.com/blog/2014/03/26/four-reasons-why-you-should-check-out-the-r-package-dplyr-3/) created by Zev Ross. However, when reading please substitute the old piping syntax %.% for the updated syntax %>%.  
+
+
+# Functions
+Dplyr implements the following verbs useful for data manipulation:
+  
++ [**select()**](#Select Function): evaluates a subset of specified variables (columns) within a dataset.
+
++ [**filter()**](#Filter Function): extracts data (all columns) pertaining to a row that meets certain criteria.
+
++ [**arrange()**](#Arrange Function): changes the ordering of the rows.
+
++ [**mutate()**](#Mutate Function): adds new variables that are functions of existing variables; displays all data included new variables.  
+
++ [**transmute()**](#Transmute Function): adds new variables that are functions of existing variables; displays only these new variables.
+
++ [**summarise()**](#Summarise &): reduces each group to a smaller number of summary statistics.
+
++ [**group_by()**](#GroupBy Function): is sub-function often used in conjunction with the summarise() function. Specifically, group_by() creates a group object, which clusters the data using one or more variables. Then summarise() can be used, where functions are evaluated on each of the unique groups.
+
++ [**sample_n()**](#Sample_n &): randomly samples a total of n row from the dataset.
+
++ [**sample_frac()**](#Sample_frac Function): randomly samples a fraction of rows from the dataset.
+
++ [**rename()**](#Rename Function): renames a variable (column name) in the dataset.
+
+
+Dplyr functions used with select() -- aka [**select helpers**](#Select Helper) functions:
+
++ **starts_with()**: starts with a prefix.
+
++ **ends_with()**: ends with a prefix.
+
++ **contains()**: contains a literal string.
+
++ **matches()**: matches a regular expression.
+
++ **num_range()**: selects columns that have a similar formatting but differ based on a numerical range like x01, x02, x03.
+
++ **one_of()**: variables in character vector.
+
++ **everything()**: all variables.
+
+# Getting Started
+First, download the dplyr package and tidyverse package. The dplyr package will give you access to all of the functions mentioned above. The tidyverse package will assist in transforming each dataframe into a tibble. This will be done for convenience purposes since printing a tibble only shows the first ten rows, rather than the entire dataset. For more information regarding tibbles, look [here](https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html).
+
+```{r echo=TRUE, message=FALSE}
+library(dplyr)
+library(tidyverse)
+```
+Next, download three datasets that will be used in various examples.  The first dataset is called [Credit](https://rdrr.io/cran/ISLR/man/Credit.html).  
+```{r echo=TRUE, message=FALSE}
+library(ISLR)
+Credit <- as_tibble(ISLR::Credit)
+Credit
+```
+The second dataset is called [Flights](https://cran.r-project.org/web/packages/nycflights13/nycflights13.pdf).
+```{r echo=TRUE, message=FALSE}
+library(nycflights13)
+flights <- as_tibble(nycflights13::flights)
+flights
+```
+The third dataset is called [Air Quality](https://www.rdocumentation.org/packages/datasets/versions/3.5.0/topics/airquality). 
+```{r}
+library(datasets)
+airquality <- as_tibble(datasets::airquality)
+airquality
+```
+
+# Examples
+In the following examples I will demonstrate how to use each of the dplyr functions, and I will also show how to do that same task using Base R. Each example will be formatted so (a) performs the task using dplyr (b) performs the task using Base R. 
+
+
+## I) Select Function <a id="Select Function"></a> 
+
+### Example 1
+The purpose of *Example 1* is to select specific variables of the airquality dataset, and display the subset of data in the exact order shown within the function (e.g- "Month, Day, Ozone, Temp"). Using DPLYR (a) this is done using the select function, and using Base R this is done by subsetting the airquality dataset using the which function.  
+
+**Example 1(a): DPLYR**
+```{r, include=TRUE}
+select(airquality, Month, Day, Ozone, Temp)
+```
+
+**Example 1(b): Base R**
+```{r, include=TRUE}
+airquality[,c(which(colnames(airquality)=="Month"), which(colnames(airquality)=="Day"), 
+              which(colnames(airquality)=="Ozone"), which(colnames(airquality)=="Temp"))]
+```
+
+### Example 2
+The purpose of *Example 2* is to display the subset of data in the exact order shown within the function (e.g- "Temp, Month, Day"). Using DPLYR (a) this is done using the select function and ':' notation, which means show all variables between the variable on the left of the colon and the variable on the right of colon. Using Base R, this is done by subsetting the airquality dataset using the which function.   
+
+**Example 2(a): DPLYR**
+```{r, include=TRUE}
+select(airquality, Temp:Day)
+```
+
+**Example 2(b): Base R**
+```{r, include=TRUE}
+airquality[,c(which(colnames(airquality)=="Temp"), which(colnames(airquality)=="Month"), which(colnames(airquality)=="Day"))]
+```
+
+### Example 3
+Example 3 is similar to Example 2 in that its purpose is to display a subset of varibales. However, the '-' sign in *Example 3*, removes all of the variables listed, and displays only the remaining variables in the dataset. 
+
+**Example 3(a): DPLYR**
+```{r, include=TRUE}
+select(airquality, -(Temp:Day))
+```
+
+**Example 3(b): Base R**
+```{r, include=TRUE}
+airquality[,-c(which(colnames(airquality)=="Temp"), which(colnames(airquality)=="Month"), which(colnames(airquality)=="Day"))]
+```
+
+## II) Select Helper Functions <a id="Select Helper"></a>
+
+### Example 1
+The purpose of *Example 1* is to identify all variables (column names) in the dataset that start with a letter "E". Using DPLYR (a) this is done simulataneously using both the select and starts_with functions. Using Base R (b) this is done by subsetting the dataset and using the startsWith function.  For (a) capitalization is not important; however, for (b) capitalization is important-- variables need to be exactly the same as the way they exist within the dataset in order for them to be recognized by the function.  
+
+**Example 1(a): DPLYR**
+```{r}
+dplyr::select(Credit, starts_with("E"))
+```
+
+**Example 1(b): Base R**
+```{r}
+Credit[,startsWith(colnames(ISLR::Credit), "E")]
+```
+
+### Example 2
+The purpose of *Example 2* is to identify and select all variables in the dataset that end with a letter "E". Using DPLYR (a) this is done simulataneously using both the select and ends_with functions. Using Base R (b) this is done by subsetting the dataset and using the endsWith function.  For (a) capitalization is not important; however, for (b) capitalization is important-- variables need to be exactly the same as the way they exist within the dataset in order for them to be recognized by the function.  
+
+**Example 2(a): DPLYR**
+```{r}
+dplyr::select(Credit, ends_with("E"))
+```
+
+**Example 2(b): Base R**
+```{r}
+Credit[,endsWith(colnames(ISLR::Credit), "e")]
+```
+
+### Example 3
+The purpose of *Example 3* is to select all variables in the data that contain the sequence of letters 'arr'. Using DPLYR (a) this is done simulataneously using both the select and matches functions. Using Base R (b) this is done by subsetting the dataset and using the [grepl function](http://www.endmemo.com/program/R/grepl.php). 
+
+**Example 3(a): DPLYR**
+```{r}
+dplyr::select(flights, matches("arr")) 
+```
+
+**Example 3(b): Base R**
+```{r}
+flights[,grepl("arr", colnames(flights))]
+```
+
+### Example 4
+The purpose of *Example 4* is to select all variables in the data that contain the sequence of letters 'time'. Using DPLYR (a) this is done simulataneously using both the select and contains functions. Using Base R (b) this is done by subsetting the dataset and using the grepl function. 
+
+**Example 4(a): DPLYR**
+```{r}
+dplyr::select(flights, contains("time")) 
+```
+
+**Example 4(b): Base R**
+```{r}
+flights[,grepl("time", colnames(flights))]
+```
+
+### Example 5
+In this example, suppose that the column names of a dataset have a similar formatting but differ based on a numerical range, e.g- x01, x02, x03, x04, etc. The purpose of *Example 5* is to select only variables that have column names between the numerical range of 8-11. Using DPLYR (a) this is done simulataneously using both the select and num_range functions. Using Base R (b) this is done by subsetting the dataset and using the which function. 
+
+**Example 5(a): DPLYR**
+```{r}
+flight_data <- flights 
+colnames(flight_data) <- sprintf("x%d", 1:19) 
+dplyr::select(flight_data, num_range("x", 8:11))
+```
+
+**Example 5(b): Base R**
+```{r}
+flight_data <- flights 
+colnames(flight_data) <- sprintf("x%d", 1:19) 
+flight_data[,c(which(colnames(flight_data)=="x8"), which(colnames(flight_data)=="x9"), 
+               which(colnames(flight_data)=="x10"), which(colnames(flight_data)=="x11"))]
+```
+
+## III) Filter Function <a id="Filter Function"></a> 
+
+### Example 1
+The purpose of *Example 1* is to extract data pertaining to all rows (airquality days) in the month of September. Using DPLYR (a) this is done using the filter function. Using Base R (b) this is done by simultaneously subsetting and specifying the condition of interest.  
+
+**Example 1(a): DPLYR**
+```{r, include=TRUE, warning=FALSE}
+dplyr::filter(airquality, Month == 9)
+```
+
+**Example 1(b): Base R**
+```{r, include=TRUE, warning=FALSE}
+airquality[airquality$Month == 9, ]
+```
+
+### Example 2
+The purpose of *Example 2* is to extract data pertaining to all rows, also known as airquality days, in the month of September. Using DPLYR (a) this is done using the filter function. Using Base R (b) this is done by simultaneously subsetting and specifying the condition of interest. 
+
+**Example 2(a): DPLYR**
+```{r, include=TRUE, warning=FALSE}
+dplyr::filter(airquality, Month == 9, Solar.R > 100)
+```
+
+**Example 2(b): Base R**
+```{r, include=TRUE, warning=FALSE}
+airquality[airquality$Month == 9 & airquality$Solar.R > 100, ]
+```
+
+
+## IV) Arrange Function <a id="Arrange Function"></a> 
+
+### Example 1
+The purpose of *Example 1* is to rearrange the original airquality dataset so that the variables Month and Day are displayed in ascending order. Using DPLYR (a) this is done using the arrange function.
+Using Base R (b) this is done by subsetting and using the order function.  Keep in mind, for both techniques, the ordering of the variables are prioritized left to right. In other words, Month is arranged in ascending first, and then Day is arranged in ascending order within the Month variables. 
+
+**Example 1(a): DPLYR**
+```{r, include=TRUE}
+dplyr::arrange(airquality, Month, Day)
+```
+
+**Example 1(b): Base R**
+```{r, include=TRUE}
+airquality[order(airquality$Month, airquality$Day),]
+```
+
+### Example 2
+The purpose of *Example 2* is to rearrange the original airquality dataset so that the variables Day and Month are displayed in ascending order. Using DPLYR (a) this is done using the arrange function.
+Using Base R (b) this is done by subsetting and using the order function. The difference between Example 2 compared to Example 1 is that the ordering of the variables are prioritized differently. Specifically, Day is arranged in ascending first, and then Month is arranged in ascending order within the Day variables.
+
+**Example 2(a): DPLYR**
+```{r, include=TRUE}
+dplyr::arrange(airquality, Day, Month)
+```
+
+**Example 2(b): Base R**
+```{r, include=TRUE}
+airquality[order(airquality$Day, airquality$Month),]
+```
+
+### Example 3
+The purpose of *Example 3* is to rearrange the original airquality dataset so that the variables Month and Day are displayed in descending order. Using DPLYR (a) this is done using the arrange and [desc](https://www.rdocumentation.org/packages/plyr/versions/1.8.4/topics/desc) function. Using Base R (b) this is done by subsetting and using the order & desc functions. Keep in mind, for both techniques, the ordering of the variables are prioritized left to right.
+
+**Example 3(a): DPLYR**
+```{r, include=TRUE}
+dplyr::arrange(airquality, desc(Month), desc(Day))
+```
+
+**Example 3(b): Base R**
+```{r, include=TRUE}
+airquality[order(-airquality$Month, -airquality$Day),]
+```
+
+### Example 4
+The purpose of *Example 4* is to rearrange the original airquality dataset so that the variable Ozone is displayed in ascending order. Using DPLYR (a) this is done using the arrange function. Using Base R (b) this is done by subsetting and using the order function.
+
+**Example 4(a): DPLYR**
+```{r, include=TRUE}
+dplyr::arrange(airquality, Ozone)
+```
+
+**Example 4(b): Base R**
+```{r, include=TRUE}
+airquality[order(airquality$Ozone),]
+```
+
+
+## V) Mutate Function  <a id="Mutate Function"></a> 
+
+### Example 1
+The purpose of *Example 1* is to add new variables, which are functions of current variables, to the existing dataset and then display the modified dataset. For instance, in Example 1, the variables gain, gain_per_hour, and speed are added to the dataset. Using DPLYR (a) this is done using the mutate function. Using Base R (b) this is done manually. 
+
+**Example 1(a): DPLYR**
+```{r, include=TRUE}
+mutate(flights,
+  gain = arr_delay - dep_delay,
+  gain_per_hour = gain / (air_time / 60),
+  speed = distance / air_time * 60)
+```
+
+**Example 1(b): Base R**
+```{r, include=TRUE}
+flights_data <- flights 
+flights_data$gain = flights_data$arr_delay - flights_data$dep_delay
+flights_data$gain_per_hour = flights_data$gain / (flights_data$air_time / 60)
+flights_data$speed = flights_data$distance / (flights_data$air_time * 60)
+flights_data
+```
+
+## VI) Transmute Function <a id="Transmute Function"></a> 
+
+### Example 1
+The purpose of *Example 1* is to add new variables, which are functions of current variables, to the existing dataset and then display only the new variables. For instance, in Example 1, the variables gain and gain_per_hour are added to the dataset. Using DPLYR (a) this is done using the transmute function. Using Base R (b) this is done manually. 
+
+**Example 1(a): DPLYR**
+```{r, include=TRUE}
+transmute(flights,
+  gain = arr_delay - dep_delay,
+  gain_per_hour = gain / (air_time / 60))
+```
+
+**Example 1(b): Base R**
+```{r}
+flights$gain = flights$arr_delay - flights$dep_delay
+flights$gain_per_hour = flights$gain / (flights$air_time / 60)
+flights[,c(which(colnames(flights)=="gain"), which(colnames(flights)=="gain_per_hour"))]
+```
+
+## VII) Summarise & GroupBy Function <a id="Summarise &"></a> <a id="GroupBy Function"></a> 
+
+### Example 1
+The purpose of *Example 1* is to categorize people based on their unique Education levels. Within the Credit data there are 16 unique Education levels, represented by years of Education. In this example, the 400 people are arranged into these 16 groups. Then for each group three functions are performed: total count within each group, mean total limit for each group, and mean total balance for each group.  Using DPLYR (a) this is done using the group_by and summarise function. Using Base R (b) this is done manually using a for loop. 
+
+**Example 1(a): DPLYR**
+```{r, include=TRUE}
+sort(unique(Credit$Education))
+by_Education <- group_by(Credit, Education)
+
+mean_info <- summarise(by_Education,
+  count = n(),
+  mean_total_limit = mean(Limit, na.rm = TRUE),
+  mean_total_balance = mean(Balance ,na.rm = TRUE))
+mean_info
+```
+
+**Example 1(b): Base R**
+```{r, include=TRUE}
+unique_id <- sort(unique(Credit$Education))
+count_n <- rep(0, length(unique(Credit$Education)))
+total_balance <- rep(0, length(unique(Credit$Education))) 
+total_limit <- rep(0, length(unique(Credit$Education)))
+
+for(i in 1:length(unique(Credit$Education))){
+  for(j in 1:nrow(Credit)){
+    if(unique_id[i]==Credit$Education[j]){
+      count_n[i] = count_n[i] + 1
+      total_balance[i] = Credit$Balance[j] + total_balance[i]
+      total_limit[i] = Credit$Limit[j] + total_limit[i]
+    }  
+    
+  }
+}
+
+mean_total_limit <- round(total_limit/count_n,0)
+mean_total_balance <- round(total_balance/count_n,0)
+
+df <- data.frame(unique_id, count_n, mean_total_limit, mean_total_balance)
+colnames(df) <- c("ID", "Count", "Mean Total Limit", "Mean Total Balance")
+df
+```
+
+
+## VIII) Sample_n & Sample_frac Function <a id="Sample_n &"></a> <a id="Sample_frac Function"></a> 
+
+### Example 1
+The purpose of *Example 1* is to randomly sample a total of n rows from the dataset. Using DPLYR (a) this is done using the sample_n function. Using Base R (b) this is done by subsetting the dataset and using the sample function. 
+
+**Example 1(a): DPLYR**
+```{r, include=TRUE}
+set.seed(123)
+sample_n(Credit, 10)
+dim(sample_n(Credit, 10))
+```
+
+**Example 1(b): Base R**
+```{r, include=TRUE}
+set.seed(123)
+numb <- c(1:nrow(Credit))
+Credit[sample(numb, size = 10, replace = FALSE),]
+dim(Credit[sample(numb, size = 10, replace = FALSE),])
+```
+
+### Example 2
+The purpose of *Example 2* is to randomly sample a fraction of rows from the dataset. Using DPLYR (a) this is done using the sample_frac function. Using Base R (b) this is done by subsetting the dataset and using the sample function. 
+
+**Example 2(a): DPLYR**
+```{r, include=TRUE}
+set.seed(123)
+sample_frac(Credit, 0.01)
+dim(sample_frac(Credit, 0.01))
+```
+
+**Example 2(b): Base R**
+```{r, include=TRUE}
+frac <- round(0.01*nrow(Credit),0) #evaluate a random 1% of the data
+Credit[sample(numb, size = frac, replace = FALSE),]
+dim(Credit[sample(numb, size = frac, replace = FALSE),])
+```
+
+
+## IX) Rename Function <a id="Rename Function"></a> 
+
+### Example 1
+The purpose of *Example 1* is to rename the Card variable to number_credit_cards, and then displayed the modified dataset. Using DPLYR (a) this is done using the rename function. Using Base R (b) this is done using the an ifelse statement and the colnames function.  
+
+**Example 1(a): DPLYR**
+```{r, include=TRUE}
+Credit_data <- rename(Credit, number_credit_cards = Cards)
+Credit_data
+```
+
+**Example 1(b): Base R**
+```{r, include=TRUE}
+colnames(Credit) <- ifelse(colnames(Credit)=="Cards", "number_credit_cards", colnames(Credit))
+Credit
+```
+
+
+# Function References
+
+Base R Functions used for the following Dplyr functions:
+
++ select(): in base R this can be done by subsetting data
++ filter(): in base R this can be done by subsetting data
++ mutate(): in base R this can be done using transform()
++ arrange(): in base R this can be done using order()
++ sample_n(): in base R this can be done using sample()
++ sample_frac(): in base R this can be done using sample()
++ transmute(): in base R this can be done using which() & simultaneously subsetting data
++ rename(): in base R this can be done using ifelse()
++ starts_with(): in base R this can be done using startsWith()
++ ends_with(): in base R this can be done using endsWith()
++ contains():  in base R this can be done using grepl() 
++ matches(): in base R this can be done using grepl() 
+
+
+# Summary 
+Dplyr provides tools to allow for increased speed, greater efficiency, and more simplisitic syntax compared to some of the other leading methods that can perform the techniques discussed in these examples. I hope you found this useful. If you have any questions, feel free to leave a comment or reach out to me via e-mail/Twitter shown on the homepage.
