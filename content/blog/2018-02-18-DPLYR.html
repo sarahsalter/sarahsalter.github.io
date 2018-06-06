@@ -25,24 +25,24 @@ description: "A post about using dplyr functions."
 <li><strong>Syntax simplicity</strong>: dplyr provides functions, in the form of simple “verbs”, to help tackle the most common data manipulation tasks and help you translate your thoughts into code.</li>
 <li><strong>Function chaining</strong>: dplyr incorporates pipe operators, %&gt;%, that allow functions to be chained together. This allows users to write code in the order that they want the functions performed, rather than a nested format, in which inner most functions are performed first before outmost functions. In addition to improved ease of reading code, piping also reduces the amount of intermittent objects needed to complete the task.</li>
 </ul>
-<p>For more details regarding the benefits to dplyr, I recommend checking out this <a href="http://zevross.com/blog/2014/03/26/four-reasons-why-you-should-check-out-the-r-package-dplyr-3/">blog post</a> created by Zev Ross. However, when reading please substitute the old piping syntax %.% for the updated syntax %&gt;%.</p>
+<p>For more details regarding the benefits to dplyr, I recommend checking out this <a href="http://zevross.com/blog/2014/03/26/four-reasons-why-you-should-check-out-the-r-package-dplyr-3/"><strong>blog post</strong></a> created by Zev Ross. However, when reading please substitute the old piping syntax %.% for the updated syntax %&gt;%.</p>
 </div>
 <div id="functions" class="section level1">
 <h1>Functions</h1>
 <p>Dplyr implements the following verbs useful for data manipulation:</p>
 <ul>
-<li><p><a href="#%20Select%20Function"><strong>select()</strong></a>: evaluates a subset of specified variables (columns) within a dataset.</p></li>
-<li><p><a href="#%20Filter%20Function"><strong>filter()</strong></a>: extracts data (all columns) pertaining to a row that meets certain criteria.</p></li>
-<li><p><a href="#%20Arrange%20Function"><strong>arrange()</strong></a>: changes the ordering of the rows.</p></li>
-<li><p><a href="#%20Mutate%20Function"><strong>mutate()</strong></a>: adds new variables that are functions of existing variables; displays all data included new variables.</p></li>
-<li><p><a href="#%20Transmute%20Function"><strong>transmute()</strong></a>: adds new variables that are functions of existing variables; displays only these new variables.</p></li>
-<li><p><a href="#%20Summarise%20&amp;"><strong>summarise()</strong></a>: reduces each group to a smaller number of summary statistics.</p></li>
-<li><p><a href="#%20GroupBy%20Function"><strong>group_by()</strong></a>: is sub-function often used in conjunction with the summarise() function. Specifically, group_by() creates a group object, which clusters the data using one or more variables. Then summarise() can be used, where functions are evaluated on each of the unique groups.</p></li>
-<li><p><a href="#%20Sample_n%20&amp;"><strong>sample_n()</strong></a>: randomly samples a total of n row from the dataset.</p></li>
-<li><p><a href="#%20Sample_frac%20Function"><strong>sample_frac()</strong></a>: randomly samples a fraction of rows from the dataset.</p></li>
-<li><p><a href="#%20Rename%20Function"><strong>rename()</strong></a>: renames a variable (column name) in the dataset.</p></li>
+<li><p><a href="#Select%20Function"><strong>select()</strong></a>: evaluates a subset of specified variables (columns) within a dataset.</p></li>
+<li><p><a href="#Filter%20Function"><strong>filter()</strong></a>: extracts data (all columns) pertaining to a row that meets certain criteria.</p></li>
+<li><p><a href="#Arrange%20Function"><strong>arrange()</strong></a>: changes the ordering of the rows.</p></li>
+<li><p><a href="#Mutate%20Function"><strong>mutate()</strong></a>: adds new variables that are functions of existing variables; displays all data included new variables.</p></li>
+<li><p><a href="#Transmute%20Function"><strong>transmute()</strong></a>: adds new variables that are functions of existing variables; displays only these new variables.</p></li>
+<li><p><a href="#Summarise%20&amp;"><strong>summarise()</strong></a>: reduces each group to a smaller number of summary statistics.</p></li>
+<li><p><a href="#GroupBy%20Function"><strong>group_by()</strong></a>: is sub-function often used in conjunction with the summarise() function. Specifically, group_by() creates a group object, which clusters the data using one or more variables. Then summarise() can be used, where functions are evaluated on each of the unique groups.</p></li>
+<li><p><a href="#Sample_n%20&amp;"><strong>sample_n()</strong></a>: randomly samples a total of n row from the dataset.</p></li>
+<li><p><a href="#Sample_frac%20Function"><strong>sample_frac()</strong></a>: randomly samples a fraction of rows from the dataset.</p></li>
+<li><p><a href="#Rename%20Function"><strong>rename()</strong></a>: renames a variable (column name) in the dataset.</p></li>
 </ul>
-<p>Dplyr functions used with select() – aka <a href="#%20Select%20Helper"><strong>select helpers</strong></a> functions:</p>
+<p>Dplyr functions used with select() – aka <a href="#Select%20Helper"><strong>select helpers</strong></a> functions:</p>
 <ul>
 <li><p><strong>starts_with()</strong>: starts with a prefix.</p></li>
 <li><p><strong>ends_with()</strong>: ends with a prefix.</p></li>
@@ -55,10 +55,10 @@ description: "A post about using dplyr functions."
 </div>
 <div id="getting-started" class="section level1">
 <h1>Getting Started</h1>
-<p>First, download the dplyr package and tidyverse package. The dplyr package will give you access to all of the functions mentioned above. The tidyverse package will assist in transforming each dataframe into a tibble. This will be done for convenience purposes since printing a tibble only shows the first ten rows, rather than the entire dataset. For more information regarding tibbles, look <a href="https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html">here</a>.</p>
+<p>First, download the dplyr package and tidyverse package. The dplyr package will give you access to all of the functions mentioned above. The tidyverse package will assist in transforming each dataframe into a tibble. This will be done for convenience purposes since printing a tibble only shows the first ten rows, rather than the entire dataset. For more information regarding tibbles, look <a href="https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html"><strong>here</strong></a>.</p>
 <pre class="r"><code>library(dplyr)
 library(tidyverse)</code></pre>
-<p>Next, download three datasets that will be used in various examples. The first dataset is called <a href="https://rdrr.io/cran/ISLR/man/Credit.html">Credit</a>.</p>
+<p>Next, download three datasets that will be used in various examples. The first dataset is called <a href="https://rdrr.io/cran/ISLR/man/Credit.html"><strong>Credit</strong></a>.</p>
 <pre class="r"><code>library(ISLR)
 Credit &lt;- as_tibble(ISLR::Credit)
 Credit</code></pre>
@@ -77,7 +77,7 @@ Credit</code></pre>
 ## 10    10   71.1  6819    491     3    41        19 Female  Yes     Yes    
 ## # ... with 390 more rows, and 2 more variables: Ethnicity &lt;fct&gt;,
 ## #   Balance &lt;int&gt;</code></pre>
-<p>The second dataset is called <a href="https://cran.r-project.org/web/packages/nycflights13/nycflights13.pdf">Flights</a>.</p>
+<p>The second dataset is called <a href="https://cran.r-project.org/web/packages/nycflights13/nycflights13.pdf"><strong>Flights</strong></a>.</p>
 <pre class="r"><code>library(nycflights13)
 flights &lt;- as_tibble(nycflights13::flights)
 flights</code></pre>
@@ -98,7 +98,7 @@ flights</code></pre>
 ## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
 ## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
 ## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<p>The third dataset is called <a href="https://www.rdocumentation.org/packages/datasets/versions/3.5.0/topics/airquality">Air Quality</a>.</p>
+<p>The third dataset is called <a href="https://www.rdocumentation.org/packages/datasets/versions/3.5.0/topics/airquality"><strong>Air Quality</strong></a>.</p>
 <pre class="r"><code>library(datasets)
 airquality &lt;- as_tibble(datasets::airquality)
 airquality</code></pre>
@@ -120,8 +120,8 @@ airquality</code></pre>
 <div id="examples" class="section level1">
 <h1>Examples</h1>
 <p>In the following examples I will demonstrate how to use each of the dplyr functions, and I will also show how to do that same task using Base R. Each example will be formatted so (a) performs the task using dplyr (b) performs the task using Base R.</p>
-<div id="i-select-function" class="section level2">
-<h2>I) Select Function <a id="Select Function"></a></h2>
+<div id="i-select-function-select-function" class="section level2">
+<h2>I) Select Function {#Select Function}</h2>
 <div id="example-1" class="section level3">
 <h3>Example 1</h3>
 <p>The purpose of <em>Example 1</em> is to select specific variables of the airquality dataset, and display the subset of data in the exact order shown within the function (e.g- “Month, Day, Ozone, Temp”). Using DPLYR (a) this is done using the select function, and using Base R (b) this is done by subsetting the airquality dataset using the which function.</p>
@@ -308,7 +308,7 @@ airquality</code></pre>
 </div>
 <div id="example-3-1" class="section level3">
 <h3>Example 3</h3>
-<p>The purpose of <em>Example 3</em> is to select all variables in the data that contain the sequence of letters ‘arr’. Using DPLYR (a) this is done simulataneously using both the select and matches functions. Using Base R (b) this is done by subsetting the dataset and using the <a href="http://www.endmemo.com/program/R/grepl.php">grepl function</a>.</p>
+<p>The purpose of <em>Example 3</em> is to select all variables in the data that contain the sequence of letters ‘arr’. Using DPLYR (a) this is done simulataneously using both the select and matches functions. Using Base R (b) this is done by subsetting the dataset and using the <a href="http://www.endmemo.com/program/R/grepl.php"><strong>grepl function</strong></a>.</p>
 <p><strong>Example 3(a): DPLYR</strong></p>
 <pre class="r"><code>dplyr::select(flights, matches(&quot;arr&quot;)) </code></pre>
 <pre><code>## # A tibble: 336,776 x 4
@@ -571,7 +571,7 @@ flight_data[,c(which(colnames(flight_data)==&quot;x8&quot;), which(colnames(flig
 </div>
 <div id="example-3-2" class="section level3">
 <h3>Example 3</h3>
-<p>The purpose of <em>Example 3</em> is to rearrange the original airquality dataset so that the variables Month and Day are displayed in descending order. Using DPLYR (a) this is done using the arrange and <a href="https://www.rdocumentation.org/packages/plyr/versions/1.8.4/topics/desc">desc</a> function. Using Base R (b) this is done by subsetting and using the order &amp; desc functions. Keep in mind, for both techniques, the ordering of the variables are prioritized left to right.</p>
+<p>The purpose of <em>Example 3</em> is to rearrange the original airquality dataset so that the variables Month and Day are displayed in descending order. Using DPLYR (a) this is done using the arrange and <a href="https://www.rdocumentation.org/packages/plyr/versions/1.8.4/topics/desc"><strong>desc</strong></a> function. Using Base R (b) this is done by subsetting and using the order &amp; desc functions. Keep in mind, for both techniques, the ordering of the variables are prioritized left to right.</p>
 <p><strong>Example 3(a): DPLYR</strong></p>
 <pre class="r"><code>dplyr::arrange(airquality, desc(Month), desc(Day))</code></pre>
 <pre><code>## # A tibble: 153 x 6

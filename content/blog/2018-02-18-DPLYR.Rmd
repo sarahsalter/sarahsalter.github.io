@@ -27,34 +27,34 @@ Dplyr provides tools to allow for increased speed, smaller utilization of memory
 + **Syntax simplicity**: dplyr provides functions, in the form of simple “verbs”, to help tackle the most common data manipulation tasks and help you translate your thoughts into code.
 + **Function chaining**: dplyr incorporates pipe operators, %>%, that allow functions to be chained together. This allows users to write code in the order that they want the functions performed, rather than a nested format, in which inner most functions are performed first before outmost functions. In addition to improved ease of reading code, piping also reduces the amount of intermittent objects needed to complete the task.  
 
-For more details regarding the benefits to dplyr, I recommend checking out this [blog post](http://zevross.com/blog/2014/03/26/four-reasons-why-you-should-check-out-the-r-package-dplyr-3/) created by Zev Ross. However, when reading please substitute the old piping syntax %.% for the updated syntax %>%.  
+For more details regarding the benefits to dplyr, I recommend checking out this [**blog post**](http://zevross.com/blog/2014/03/26/four-reasons-why-you-should-check-out-the-r-package-dplyr-3/) created by Zev Ross. However, when reading please substitute the old piping syntax %.% for the updated syntax %>%.  
 
 
 # Functions
 Dplyr implements the following verbs useful for data manipulation:
   
-+ [**select()**](# Select Function): evaluates a subset of specified variables (columns) within a dataset.
++ [**select()**](#Select Function): evaluates a subset of specified variables (columns) within a dataset.
 
-+ [**filter()**](# Filter Function): extracts data (all columns) pertaining to a row that meets certain criteria.
++ [**filter()**](#Filter Function): extracts data (all columns) pertaining to a row that meets certain criteria.
 
-+ [**arrange()**](# Arrange Function): changes the ordering of the rows.
++ [**arrange()**](#Arrange Function): changes the ordering of the rows.
 
-+ [**mutate()**](# Mutate Function): adds new variables that are functions of existing variables; displays all data included new variables.  
++ [**mutate()**](#Mutate Function): adds new variables that are functions of existing variables; displays all data included new variables.  
 
-+ [**transmute()**](# Transmute Function): adds new variables that are functions of existing variables; displays only these new variables.
++ [**transmute()**](#Transmute Function): adds new variables that are functions of existing variables; displays only these new variables.
 
-+ [**summarise()**](# Summarise &): reduces each group to a smaller number of summary statistics.
++ [**summarise()**](#Summarise &): reduces each group to a smaller number of summary statistics.
 
-+ [**group_by()**](# GroupBy Function): is sub-function often used in conjunction with the summarise() function. Specifically, group_by() creates a group object, which clusters the data using one or more variables. Then summarise() can be used, where functions are evaluated on each of the unique groups.
++ [**group_by()**](#GroupBy Function): is sub-function often used in conjunction with the summarise() function. Specifically, group_by() creates a group object, which clusters the data using one or more variables. Then summarise() can be used, where functions are evaluated on each of the unique groups.
 
-+ [**sample_n()**](# Sample_n &): randomly samples a total of n row from the dataset.
++ [**sample_n()**](#Sample_n &): randomly samples a total of n row from the dataset.
 
-+ [**sample_frac()**](# Sample_frac Function): randomly samples a fraction of rows from the dataset.
++ [**sample_frac()**](#Sample_frac Function): randomly samples a fraction of rows from the dataset.
 
-+ [**rename()**](# Rename Function): renames a variable (column name) in the dataset.
++ [**rename()**](#Rename Function): renames a variable (column name) in the dataset.
 
 
-Dplyr functions used with select() -- aka [**select helpers**](# Select Helper) functions:
+Dplyr functions used with select() -- aka [**select helpers**](#Select Helper) functions:
 
 + **starts_with()**: starts with a prefix.
 
@@ -71,25 +71,25 @@ Dplyr functions used with select() -- aka [**select helpers**](# Select Helper) 
 + **everything()**: all variables.
 
 # Getting Started
-First, download the dplyr package and tidyverse package. The dplyr package will give you access to all of the functions mentioned above. The tidyverse package will assist in transforming each dataframe into a tibble. This will be done for convenience purposes since printing a tibble only shows the first ten rows, rather than the entire dataset. For more information regarding tibbles, look [here](https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html).
+First, download the dplyr package and tidyverse package. The dplyr package will give you access to all of the functions mentioned above. The tidyverse package will assist in transforming each dataframe into a tibble. This will be done for convenience purposes since printing a tibble only shows the first ten rows, rather than the entire dataset. For more information regarding tibbles, look [**here**](https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html).
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(dplyr)
 library(tidyverse)
 ```
-Next, download three datasets that will be used in various examples.  The first dataset is called [Credit](https://rdrr.io/cran/ISLR/man/Credit.html).  
+Next, download three datasets that will be used in various examples.  The first dataset is called [**Credit**](https://rdrr.io/cran/ISLR/man/Credit.html).  
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(ISLR)
 Credit <- as_tibble(ISLR::Credit)
 Credit
 ```
-The second dataset is called [Flights](https://cran.r-project.org/web/packages/nycflights13/nycflights13.pdf).
+The second dataset is called [**Flights**](https://cran.r-project.org/web/packages/nycflights13/nycflights13.pdf).
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(nycflights13)
 flights <- as_tibble(nycflights13::flights)
 flights
 ```
-The third dataset is called [Air Quality](https://www.rdocumentation.org/packages/datasets/versions/3.5.0/topics/airquality). 
+The third dataset is called [**Air Quality**](https://www.rdocumentation.org/packages/datasets/versions/3.5.0/topics/airquality). 
 ```{r, warning=FALSE}
 library(datasets)
 airquality <- as_tibble(datasets::airquality)
@@ -100,7 +100,7 @@ airquality
 In the following examples I will demonstrate how to use each of the dplyr functions, and I will also show how to do that same task using Base R. Each example will be formatted so (a) performs the task using dplyr (b) performs the task using Base R. 
 
 
-## I) Select Function <a id="Select Function"></a> 
+## I) Select Function {#Select Function}
 
 ### Example 1
 The purpose of *Example 1* is to select specific variables of the airquality dataset, and display the subset of data in the exact order shown within the function (e.g- "Month, Day, Ozone, Temp"). Using DPLYR (a) this is done using the select function, and using Base R (b) this is done by subsetting the airquality dataset using the which function.  
@@ -171,7 +171,7 @@ Credit[,endsWith(colnames(ISLR::Credit), "e")]
 ```
 
 ### Example 3
-The purpose of *Example 3* is to select all variables in the data that contain the sequence of letters 'arr'. Using DPLYR (a) this is done simulataneously using both the select and matches functions. Using Base R (b) this is done by subsetting the dataset and using the [grepl function](http://www.endmemo.com/program/R/grepl.php). 
+The purpose of *Example 3* is to select all variables in the data that contain the sequence of letters 'arr'. Using DPLYR (a) this is done simulataneously using both the select and matches functions. Using Base R (b) this is done by subsetting the dataset and using the [**grepl function**](http://www.endmemo.com/program/R/grepl.php). 
 
 **Example 3(a): DPLYR**
 ```{r}
@@ -272,7 +272,7 @@ airquality[order(airquality$Day, airquality$Month),]
 ```
 
 ### Example 3
-The purpose of *Example 3* is to rearrange the original airquality dataset so that the variables Month and Day are displayed in descending order. Using DPLYR (a) this is done using the arrange and [desc](https://www.rdocumentation.org/packages/plyr/versions/1.8.4/topics/desc) function. Using Base R (b) this is done by subsetting and using the order & desc functions. Keep in mind, for both techniques, the ordering of the variables are prioritized left to right.
+The purpose of *Example 3* is to rearrange the original airquality dataset so that the variables Month and Day are displayed in descending order. Using DPLYR (a) this is done using the arrange and [**desc**](https://www.rdocumentation.org/packages/plyr/versions/1.8.4/topics/desc) function. Using Base R (b) this is done by subsetting and using the order & desc functions. Keep in mind, for both techniques, the ordering of the variables are prioritized left to right.
 
 **Example 3(a): DPLYR**
 ```{r, include=TRUE, warning=FALSE}
