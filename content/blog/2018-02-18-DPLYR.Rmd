@@ -33,28 +33,28 @@ For more details regarding the benefits to dplyr, I recommend checking out this 
 # Functions
 Dplyr implements the following verbs useful for data manipulation:
   
-+ [**select()**](#Select Function): evaluates a subset of specified variables (columns) within a dataset.
++ [**select()**](# Select Function): evaluates a subset of specified variables (columns) within a dataset.
 
-+ [**filter()**](#Filter Function): extracts data (all columns) pertaining to a row that meets certain criteria.
++ [**filter()**](# Filter Function): extracts data (all columns) pertaining to a row that meets certain criteria.
 
-+ [**arrange()**](#Arrange Function): changes the ordering of the rows.
++ [**arrange()**](# Arrange Function): changes the ordering of the rows.
 
-+ [**mutate()**](#Mutate Function): adds new variables that are functions of existing variables; displays all data included new variables.  
++ [**mutate()**](# Mutate Function): adds new variables that are functions of existing variables; displays all data included new variables.  
 
-+ [**transmute()**](#Transmute Function): adds new variables that are functions of existing variables; displays only these new variables.
++ [**transmute()**](# Transmute Function): adds new variables that are functions of existing variables; displays only these new variables.
 
-+ [**summarise()**](#Summarise &): reduces each group to a smaller number of summary statistics.
++ [**summarise()**](# Summarise &): reduces each group to a smaller number of summary statistics.
 
-+ [**group_by()**](#GroupBy Function): is sub-function often used in conjunction with the summarise() function. Specifically, group_by() creates a group object, which clusters the data using one or more variables. Then summarise() can be used, where functions are evaluated on each of the unique groups.
++ [**group_by()**](# GroupBy Function): is sub-function often used in conjunction with the summarise() function. Specifically, group_by() creates a group object, which clusters the data using one or more variables. Then summarise() can be used, where functions are evaluated on each of the unique groups.
 
-+ [**sample_n()**](#Sample_n &): randomly samples a total of n row from the dataset.
++ [**sample_n()**](# Sample_n &): randomly samples a total of n row from the dataset.
 
-+ [**sample_frac()**](#Sample_frac Function): randomly samples a fraction of rows from the dataset.
++ [**sample_frac()**](# Sample_frac Function): randomly samples a fraction of rows from the dataset.
 
-+ [**rename()**](#Rename Function): renames a variable (column name) in the dataset.
++ [**rename()**](# Rename Function): renames a variable (column name) in the dataset.
 
 
-Dplyr functions used with select() -- aka [**select helpers**](#Select Helper) functions:
+Dplyr functions used with select() -- aka [**select helpers**](# Select Helper) functions:
 
 + **starts_with()**: starts with a prefix.
 
