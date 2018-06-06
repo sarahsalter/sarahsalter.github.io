@@ -5,6 +5,7 @@ date: 2018-02-18T21:13:14-05:00
 output: html_document
 tags: ["R Markdown", "dplyr", "data manipulation"]
 categories: ["R"]
+description: "A post about using dplyr functions."
 ---
   
 ```{r setup, include=FALSE}
