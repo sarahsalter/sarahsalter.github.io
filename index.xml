@@ -61,6 +61,17 @@ summary(cars) ## speed dist ## Min.</description>
     </item>
     
     <item>
+      <title>Data Manipulation with DPLYR</title>
+      <link>/./blog/2018-02-18-dplyr/</link>
+      <pubDate>Sun, 18 Feb 2018 21:13:14 -0500</pubDate>
+      
+      <guid>/./blog/2018-02-18-dplyr/</guid>
+      <description>Introduction to Dplyr Dplyr is an R package, designed for the purpose of manipulating data. This package is the creation of Hadley Wickem, and it offers many advantageous features. For those of you familiar with Plyr, Dplyr is the next iteration, and it specifically focuses only on dataframes.
+ Why You Should Use It Efficiency. Simplicity. Speed.
+Dplyr provides tools to allow for increased speed, smaller utilization of memory, and efficiency/simplicity in writing functions.</description>
+    </item>
+    
+    <item>
       <title>Hooli’s Hot New Hardware</title>
       <link>/./blog/third/</link>
       <pubDate>Mon, 03 Oct 2016 16:59:13 -0400</pubDate>

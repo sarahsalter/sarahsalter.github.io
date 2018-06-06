@@ -28,6 +28,11 @@
   </url>
   
   <url>
+    <loc>/./blog/2018-02-18-dplyr/</loc>
+    <lastmod>2018-02-18T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/./blog/third/</loc>
     <lastmod>2016-10-03T16:59:13-04:00</lastmod>
   </url>
@@ -114,6 +119,18 @@
   <url>
     <loc>/./tags/ceo/</loc>
     <lastmod>2016-10-01T16:59:13-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/./tags/data-manipulation/</loc>
+    <lastmod>2018-02-18T21:13:14-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/./tags/dplyr/</loc>
+    <lastmod>2018-02-18T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
