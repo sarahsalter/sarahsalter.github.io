@@ -1,0 +1,15 @@
+---
+title: "Working Post"
+author: "Sarah Salter"
+date: "June 5, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Distribution Plots 
+
+x <- rnorm(100, mean=0, sd=1)
+hist(x)
