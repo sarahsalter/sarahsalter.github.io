@@ -33,9 +33,9 @@ For more details regarding the benefits to dplyr, I recommend checking out this 
 # Functions
 Dplyr implements the following verbs useful for data manipulation:
   
-+ [**select()**](#Select Function): evaluates a subset of specified variables (columns) within a dataset.
++ [**select()**](#Select): evaluates a subset of specified variables (columns) within a dataset.
 
-+ [**filter()**](#Filter Function): extracts data (all columns) pertaining to a row that meets certain criteria.
++ [**filter()**](#Filter): extracts data (all columns) pertaining to a row that meets certain criteria.
 
 + [**arrange()**](#Arrange Function): changes the ordering of the rows.
 
@@ -100,7 +100,7 @@ airquality
 In the following examples I will demonstrate how to use each of the dplyr functions, and I will also show how to do that same task using Base R. Each example will be formatted so (a) performs the task using dplyr (b) performs the task using Base R. 
 
 
-## I) Select Function {#Select Function}
+## I) Select Function <a id="Select"></a>
 
 ### Example 1
 The purpose of *Example 1* is to select specific variables of the airquality dataset, and display the subset of data in the exact order shown within the function (e.g- "Month, Day, Ozone, Temp"). Using DPLYR (a) this is done using the select function, and using Base R (b) this is done by subsetting the airquality dataset using the which function.  
@@ -214,7 +214,7 @@ flight_data[,c(which(colnames(flight_data)=="x8"), which(colnames(flight_data)==
                which(colnames(flight_data)=="x10"), which(colnames(flight_data)=="x11"))]
 ```
 
-## III) Filter Function <a id="Filter Function"></a> 
+## III) Filter Function <a id="Filter"></a> 
 
 ### Example 1
 The purpose of *Example 1* is to extract data pertaining to all rows (airquality days) in the month of September. Using DPLYR (a) this is done using the filter function. Using Base R (b) this is done by simultaneously subsetting and specifying the condition of interest.  
