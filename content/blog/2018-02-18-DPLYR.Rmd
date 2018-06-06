@@ -8,7 +8,7 @@ categories: ["R"]
 description: "A post about using dplyr functions."
 ---
   
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -73,24 +73,24 @@ Dplyr functions used with select() -- aka [**select helpers**](#Select Helper) f
 # Getting Started
 First, download the dplyr package and tidyverse package. The dplyr package will give you access to all of the functions mentioned above. The tidyverse package will assist in transforming each dataframe into a tibble. This will be done for convenience purposes since printing a tibble only shows the first ten rows, rather than the entire dataset. For more information regarding tibbles, look [here](https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html).
 
-```{r echo=TRUE, message=FALSE}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(dplyr)
 library(tidyverse)
 ```
 Next, download three datasets that will be used in various examples.  The first dataset is called [Credit](https://rdrr.io/cran/ISLR/man/Credit.html).  
-```{r echo=TRUE, message=FALSE}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(ISLR)
 Credit <- as_tibble(ISLR::Credit)
 Credit
 ```
 The second dataset is called [Flights](https://cran.r-project.org/web/packages/nycflights13/nycflights13.pdf).
-```{r echo=TRUE, message=FALSE}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(nycflights13)
 flights <- as_tibble(nycflights13::flights)
 flights
 ```
 The third dataset is called [Air Quality](https://www.rdocumentation.org/packages/datasets/versions/3.5.0/topics/airquality). 
-```{r}
+```{r, warning=FALSE}
 library(datasets)
 airquality <- as_tibble(datasets::airquality)
 airquality
@@ -106,12 +106,12 @@ In the following examples I will demonstrate how to use each of the dplyr functi
 The purpose of *Example 1* is to select specific variables of the airquality dataset, and display the subset of data in the exact order shown within the function (e.g- "Month, Day, Ozone, Temp"). Using DPLYR (a) this is done using the select function, and using Base R this is done by subsetting the airquality dataset using the which function.  
 
 **Example 1(a): DPLYR**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 select(airquality, Month, Day, Ozone, Temp)
 ```
 
 **Example 1(b): Base R**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 airquality[,c(which(colnames(airquality)=="Month"), which(colnames(airquality)=="Day"), 
               which(colnames(airquality)=="Ozone"), which(colnames(airquality)=="Temp"))]
 ```
@@ -120,12 +120,12 @@ airquality[,c(which(colnames(airquality)=="Month"), which(colnames(airquality)==
 The purpose of *Example 2* is to display the subset of data in the exact order shown within the function (e.g- "Temp, Month, Day"). Using DPLYR (a) this is done using the select function and ':' notation, which means show all variables between the variable on the left of the colon and the variable on the right of colon. Using Base R, this is done by subsetting the airquality dataset using the which function.   
 
 **Example 2(a): DPLYR**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 select(airquality, Temp:Day)
 ```
 
 **Example 2(b): Base R**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 airquality[,c(which(colnames(airquality)=="Temp"), which(colnames(airquality)=="Month"), which(colnames(airquality)=="Day"))]
 ```
 
@@ -133,12 +133,12 @@ airquality[,c(which(colnames(airquality)=="Temp"), which(colnames(airquality)=="
 Example 3 is similar to Example 2 in that its purpose is to display a subset of varibales. However, the '-' sign in *Example 3*, removes all of the variables listed, and displays only the remaining variables in the dataset. 
 
 **Example 3(a): DPLYR**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 select(airquality, -(Temp:Day))
 ```
 
 **Example 3(b): Base R**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 airquality[,-c(which(colnames(airquality)=="Temp"), which(colnames(airquality)=="Month"), which(colnames(airquality)=="Day"))]
 ```
 
@@ -250,12 +250,12 @@ The purpose of *Example 1* is to rearrange the original airquality dataset so th
 Using Base R (b) this is done by subsetting and using the order function.  Keep in mind, for both techniques, the ordering of the variables are prioritized left to right. In other words, Month is arranged in ascending first, and then Day is arranged in ascending order within the Month variables. 
 
 **Example 1(a): DPLYR**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 dplyr::arrange(airquality, Month, Day)
 ```
 
 **Example 1(b): Base R**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 airquality[order(airquality$Month, airquality$Day),]
 ```
 
@@ -264,12 +264,12 @@ The purpose of *Example 2* is to rearrange the original airquality dataset so th
 Using Base R (b) this is done by subsetting and using the order function. The difference between Example 2 compared to Example 1 is that the ordering of the variables are prioritized differently. Specifically, Day is arranged in ascending first, and then Month is arranged in ascending order within the Day variables.
 
 **Example 2(a): DPLYR**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 dplyr::arrange(airquality, Day, Month)
 ```
 
 **Example 2(b): Base R**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 airquality[order(airquality$Day, airquality$Month),]
 ```
 
@@ -277,12 +277,12 @@ airquality[order(airquality$Day, airquality$Month),]
 The purpose of *Example 3* is to rearrange the original airquality dataset so that the variables Month and Day are displayed in descending order. Using DPLYR (a) this is done using the arrange and [desc](https://www.rdocumentation.org/packages/plyr/versions/1.8.4/topics/desc) function. Using Base R (b) this is done by subsetting and using the order & desc functions. Keep in mind, for both techniques, the ordering of the variables are prioritized left to right.
 
 **Example 3(a): DPLYR**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 dplyr::arrange(airquality, desc(Month), desc(Day))
 ```
 
 **Example 3(b): Base R**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 airquality[order(-airquality$Month, -airquality$Day),]
 ```
 
@@ -290,12 +290,12 @@ airquality[order(-airquality$Month, -airquality$Day),]
 The purpose of *Example 4* is to rearrange the original airquality dataset so that the variable Ozone is displayed in ascending order. Using DPLYR (a) this is done using the arrange function. Using Base R (b) this is done by subsetting and using the order function.
 
 **Example 4(a): DPLYR**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 dplyr::arrange(airquality, Ozone)
 ```
 
 **Example 4(b): Base R**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 airquality[order(airquality$Ozone),]
 ```
 
@@ -306,7 +306,7 @@ airquality[order(airquality$Ozone),]
 The purpose of *Example 1* is to add new variables, which are functions of current variables, to the existing dataset and then display the modified dataset. For instance, in Example 1, the variables gain, gain_per_hour, and speed are added to the dataset. Using DPLYR (a) this is done using the mutate function. Using Base R (b) this is done manually. 
 
 **Example 1(a): DPLYR**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 mutate(flights,
   gain = arr_delay - dep_delay,
   gain_per_hour = gain / (air_time / 60),
@@ -314,7 +314,7 @@ mutate(flights,
 ```
 
 **Example 1(b): Base R**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 flights_data <- flights 
 flights_data$gain = flights_data$arr_delay - flights_data$dep_delay
 flights_data$gain_per_hour = flights_data$gain / (flights_data$air_time / 60)
@@ -328,14 +328,14 @@ flights_data
 The purpose of *Example 1* is to add new variables, which are functions of current variables, to the existing dataset and then display only the new variables. For instance, in Example 1, the variables gain and gain_per_hour are added to the dataset. Using DPLYR (a) this is done using the transmute function. Using Base R (b) this is done manually. 
 
 **Example 1(a): DPLYR**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 transmute(flights,
   gain = arr_delay - dep_delay,
   gain_per_hour = gain / (air_time / 60))
 ```
 
 **Example 1(b): Base R**
-```{r}
+```{r, warning=FALSE}
 flights$gain = flights$arr_delay - flights$dep_delay
 flights$gain_per_hour = flights$gain / (flights$air_time / 60)
 flights[,c(which(colnames(flights)=="gain"), which(colnames(flights)=="gain_per_hour"))]
@@ -347,7 +347,7 @@ flights[,c(which(colnames(flights)=="gain"), which(colnames(flights)=="gain_per_
 The purpose of *Example 1* is to categorize people based on their unique Education levels. Within the Credit data there are 16 unique Education levels, represented by years of Education. In this example, the 400 people are arranged into these 16 groups. Then for each group three functions are performed: total count within each group, mean total limit for each group, and mean total balance for each group.  Using DPLYR (a) this is done using the group_by and summarise function. Using Base R (b) this is done manually using a for loop. 
 
 **Example 1(a): DPLYR**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 sort(unique(Credit$Education))
 by_Education <- group_by(Credit, Education)
 
@@ -359,7 +359,7 @@ mean_info
 ```
 
 **Example 1(b): Base R**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 unique_id <- sort(unique(Credit$Education))
 count_n <- rep(0, length(unique(Credit$Education)))
 total_balance <- rep(0, length(unique(Credit$Education))) 
@@ -391,14 +391,14 @@ df
 The purpose of *Example 1* is to randomly sample a total of n rows from the dataset. Using DPLYR (a) this is done using the sample_n function. Using Base R (b) this is done by subsetting the dataset and using the sample function. 
 
 **Example 1(a): DPLYR**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 set.seed(123)
 sample_n(Credit, 10)
 dim(sample_n(Credit, 10))
 ```
 
 **Example 1(b): Base R**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 set.seed(123)
 numb <- c(1:nrow(Credit))
 Credit[sample(numb, size = 10, replace = FALSE),]
@@ -409,14 +409,14 @@ dim(Credit[sample(numb, size = 10, replace = FALSE),])
 The purpose of *Example 2* is to randomly sample a fraction of rows from the dataset. Using DPLYR (a) this is done using the sample_frac function. Using Base R (b) this is done by subsetting the dataset and using the sample function. 
 
 **Example 2(a): DPLYR**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 set.seed(123)
 sample_frac(Credit, 0.01)
 dim(sample_frac(Credit, 0.01))
 ```
 
 **Example 2(b): Base R**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 frac <- round(0.01*nrow(Credit),0) #evaluate a random 1% of the data
 Credit[sample(numb, size = frac, replace = FALSE),]
 dim(Credit[sample(numb, size = frac, replace = FALSE),])
@@ -429,13 +429,13 @@ dim(Credit[sample(numb, size = frac, replace = FALSE),])
 The purpose of *Example 1* is to rename the Card variable to number_credit_cards, and then displayed the modified dataset. Using DPLYR (a) this is done using the rename function. Using Base R (b) this is done using the an ifelse statement and the colnames function.  
 
 **Example 1(a): DPLYR**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 Credit_data <- rename(Credit, number_credit_cards = Cards)
 Credit_data
 ```
 
 **Example 1(b): Base R**
-```{r, include=TRUE}
+```{r, include=TRUE, warning=FALSE}
 colnames(Credit) <- ifelse(colnames(Credit)=="Cards", "number_credit_cards", colnames(Credit))
 Credit
 ```

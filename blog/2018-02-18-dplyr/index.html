@@ -110,18 +110,11 @@
 <div id="getting-started" class="section level1">
 <h1>Getting Started</h1>
 <p>First, download the dplyr package and tidyverse package. The dplyr package will give you access to all of the functions mentioned above. The tidyverse package will assist in transforming each dataframe into a tibble. This will be done for convenience purposes since printing a tibble only shows the first ten rows, rather than the entire dataset. For more information regarding tibbles, look <a href="https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html">here</a>.</p>
-<pre class="r"><code>library(dplyr)</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.4.4</code></pre>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.4.2</code></pre>
-<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.4.3</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.4.4</code></pre>
-<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.4.4</code></pre>
-<pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.4.3</code></pre>
+<pre class="r"><code>library(dplyr)
+library(tidyverse)</code></pre>
 <p>Next, download three datasets that will be used in various examples. The first dataset is called <a href="https://rdrr.io/cran/ISLR/man/Credit.html">Credit</a>.</p>
-<pre class="r"><code>library(ISLR)</code></pre>
-<pre><code>## Warning: package &#39;ISLR&#39; was built under R version 3.4.2</code></pre>
-<pre class="r"><code>Credit &lt;- as_tibble(ISLR::Credit)
+<pre class="r"><code>library(ISLR)
+Credit &lt;- as_tibble(ISLR::Credit)
 Credit</code></pre>
 <pre><code>## # A tibble: 400 x 12
 ##       ID Income Limit Rating Cards   Age Education Gender  Student Married
