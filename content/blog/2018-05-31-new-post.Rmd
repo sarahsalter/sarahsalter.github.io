@@ -16,8 +16,6 @@ description: "A post about how to make a blog using blogdown"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
-
 ## Hello.
 
 
