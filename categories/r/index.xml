@@ -6,30 +6,10 @@
     <description>Recent content in R on Sarah Salter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 05 Jun 2018 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 18 Feb 2018 21:13:14 -0500</lastBuildDate>
     
 	<atom:link href="/./categories/r/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Working Post</title>
-      <link>/./blog/2018-06-05-new-post/</link>
-      <pubDate>Tue, 05 Jun 2018 21:13:14 -0500</pubDate>
-      
-      <guid>/./blog/2018-06-05-new-post/</guid>
-      <description>Distribution Plots x &amp;lt;- rnorm(100, mean=0, sd=1) hist(x)  </description>
-    </item>
-    
-    <item>
-      <title>How To Blog</title>
-      <link>/./blog/new-post/</link>
-      <pubDate>Thu, 31 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/./blog/new-post/</guid>
-      <description>Hello. This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min.</description>
-    </item>
     
     <item>
       <title>Data Manipulation with DPLYR</title>
@@ -40,17 +20,6 @@ summary(cars) ## speed dist ## Min.</description>
       <description>Introduction to Dplyr Dplyr is an R package, designed for the purpose of manipulating data. This package is the creation of Hadley Wickem, and it offers many advantageous features. For those of you familiar with Plyr, Dplyr is the next iteration, and it specifically focuses only on dataframes.
  Why You Should Use It Efficiency. Simplicity. Speed.
 Dplyr provides tools to allow for increased speed, smaller utilization of memory, and efficiency/simplicity in writing functions.</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/./blog/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/./blog/2015-07-23-r-rmarkdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
     </item>
     
   </channel>

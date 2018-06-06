@@ -6,40 +6,10 @@
     <description>Recent content in Blogs on Sarah Salter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 05 Jun 2018 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 18 Feb 2018 21:13:14 -0500</lastBuildDate>
     
 	<atom:link href="/./blog/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Working Post</title>
-      <link>/./blog/2018-06-05-new-post/</link>
-      <pubDate>Tue, 05 Jun 2018 21:13:14 -0500</pubDate>
-      
-      <guid>/./blog/2018-06-05-new-post/</guid>
-      <description>Distribution Plots x &amp;lt;- rnorm(100, mean=0, sd=1) hist(x)  </description>
-    </item>
-    
-    <item>
-      <title>How To Blog</title>
-      <link>/./blog/new-post/</link>
-      <pubDate>Thu, 31 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/./blog/new-post/</guid>
-      <description>Hello. This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min.</description>
-    </item>
-    
-    <item>
-      <title>New Post</title>
-      <link>/./blog/new-post/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/./blog/new-post/</guid>
-      <description>Newest Post I am not sure if this is going to work
-## [1] &amp;quot;speed&amp;quot; &amp;quot;dist&amp;quot;  </description>
-    </item>
     
     <item>
       <title>Data Manipulation with DPLYR</title>
@@ -50,48 +20,6 @@ summary(cars) ## speed dist ## Min.</description>
       <description>Introduction to Dplyr Dplyr is an R package, designed for the purpose of manipulating data. This package is the creation of Hadley Wickem, and it offers many advantageous features. For those of you familiar with Plyr, Dplyr is the next iteration, and it specifically focuses only on dataframes.
  Why You Should Use It Efficiency. Simplicity. Speed.
 Dplyr provides tools to allow for increased speed, smaller utilization of memory, and efficiency/simplicity in writing functions.</description>
-    </item>
-    
-    <item>
-      <title>Hooli’s Hot New Hardware</title>
-      <link>/./blog/third/</link>
-      <pubDate>Mon, 03 Oct 2016 16:59:13 -0400</pubDate>
-      
-      <guid>/./blog/third/</guid>
-      <description>Note: This article originally appeared in CodeRag.
-When Hooli acquired Endframe, no one could wait to see what the tech giant would do with the revolutionary, middle-out compression technology. The wait is over: In a savvy pivot, Hooli took the software and created their newest hardware: the Hooli/Endframe Box. While initially conceived as a consumer-facing platform, the Endframe technology has been repurposed to “make the world a better place through secure, high-capacity enterprise data storage servers utilizing middle-out compression technology.</description>
-    </item>
-    
-    <item>
-      <title>Gavin Belson</title>
-      <link>/./blog/first/</link>
-      <pubDate>Sun, 02 Oct 2016 15:59:13 -0400</pubDate>
-      
-      <guid>/./blog/first/</guid>
-      <description>Note: This article originally appeared in CodeRag.
-Gavin Belson’s name has long been synonymous with innovation—but beyond his work at Hooli, do we even know the man behind the rampant success? In a Code/Rag exclusive, Belson revealed to us 10 things about himself that aren’t common knowledge.
- He’s a nature fanatic! “It’s important to me that Hooli has an effective recycling program, and a personal passion of mine is donating to elephant sanctuaries.</description>
-    </item>
-    
-    <item>
-      <title>Belson Back on Top</title>
-      <link>/./blog/second/</link>
-      <pubDate>Sat, 01 Oct 2016 16:59:13 -0400</pubDate>
-      
-      <guid>/./blog/second/</guid>
-      <description>Note: This post originally appeared in CodeRag
-Gavin Belson’s brilliant leadership is unstoppable. While allegedly taking a personal hiatus from day-to-day operations at Hooli, Belson couldn’t resist brokering a blockbuster deal between Hooli and Maleant Data Systems, deploying Hooli’s innovative new Hooli/Endframe Box. The multi-year deal brings handsome margins for Hooli and can easily be a template to apply across the entire Fortune 1000. An inside source tells me that, no surprise, the board was no longer satisfied to let Belson fade into the background.</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/./blog/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/./blog/2015-07-23-r-rmarkdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
     </item>
     
   </channel>
