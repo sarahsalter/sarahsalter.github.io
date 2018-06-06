@@ -103,7 +103,7 @@ In the following examples I will demonstrate how to use each of the dplyr functi
 ## I) Select Function <a id="Select Function"></a> 
 
 ### Example 1
-The purpose of *Example 1* is to select specific variables of the airquality dataset, and display the subset of data in the exact order shown within the function (e.g- "Month, Day, Ozone, Temp"). Using DPLYR (a) this is done using the select function, and using Base R this is done by subsetting the airquality dataset using the which function.  
+The purpose of *Example 1* is to select specific variables of the airquality dataset, and display the subset of data in the exact order shown within the function (e.g- "Month, Day, Ozone, Temp"). Using DPLYR (a) this is done using the select function, and using Base R (b) this is done by subsetting the airquality dataset using the which function.  
 
 **Example 1(a): DPLYR**
 ```{r, include=TRUE, warning=FALSE}
@@ -117,7 +117,7 @@ airquality[,c(which(colnames(airquality)=="Month"), which(colnames(airquality)==
 ```
 
 ### Example 2
-The purpose of *Example 2* is to display the subset of data in the exact order shown within the function (e.g- "Temp, Month, Day"). Using DPLYR (a) this is done using the select function and ':' notation, which means show all variables between the variable on the left of the colon and the variable on the right of colon. Using Base R, this is done by subsetting the airquality dataset using the which function.   
+The purpose of *Example 2* is to display the subset of data in the exact order shown within the function (e.g- "Temp, Month, Day"). Using DPLYR (a) this is done using the select function and ':' notation, which means show all variables between the variable on the left of the colon and the variable on the right of colon. Using Base R (b), this is done by subsetting the airquality dataset using the which function.   
 
 **Example 2(a): DPLYR**
 ```{r, include=TRUE, warning=FALSE}
@@ -246,8 +246,7 @@ airquality[airquality$Month == 9 & airquality$Solar.R > 100, ]
 ## IV) Arrange Function <a id="Arrange Function"></a> 
 
 ### Example 1
-The purpose of *Example 1* is to rearrange the original airquality dataset so that the variables Month and Day are displayed in ascending order. Using DPLYR (a) this is done using the arrange function.
-Using Base R (b) this is done by subsetting and using the order function.  Keep in mind, for both techniques, the ordering of the variables are prioritized left to right. In other words, Month is arranged in ascending first, and then Day is arranged in ascending order within the Month variables. 
+The purpose of *Example 1* is to rearrange the original airquality dataset so that the variables Month and Day are displayed in ascending order. Using DPLYR (a) this is done using the arrange function. Using Base R (b) this is done by subsetting and using the order function.  Keep in mind, for both techniques, the ordering of the variables are prioritized left to right. In other words, Month is arranged in ascending first, and then Day is arranged in ascending order within the Month variables. 
 
 **Example 1(a): DPLYR**
 ```{r, include=TRUE, warning=FALSE}
@@ -260,8 +259,7 @@ airquality[order(airquality$Month, airquality$Day),]
 ```
 
 ### Example 2
-The purpose of *Example 2* is to rearrange the original airquality dataset so that the variables Day and Month are displayed in ascending order. Using DPLYR (a) this is done using the arrange function.
-Using Base R (b) this is done by subsetting and using the order function. The difference between Example 2 compared to Example 1 is that the ordering of the variables are prioritized differently. Specifically, Day is arranged in ascending first, and then Month is arranged in ascending order within the Day variables.
+The purpose of *Example 2* is to rearrange the original airquality dataset so that the variables Day and Month are displayed in ascending order. Using DPLYR (a) this is done using the arrange function. Using Base R (b) this is done by subsetting and using the order function. The difference between Example 2 compared to Example 1 is that the ordering of the variables are prioritized differently. Specifically, Day is arranged in ascending first, and then Month is arranged in ascending order within the Day variables.
 
 **Example 2(a): DPLYR**
 ```{r, include=TRUE, warning=FALSE}

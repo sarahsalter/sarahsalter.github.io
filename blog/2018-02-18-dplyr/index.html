@@ -178,7 +178,7 @@ airquality</code></pre>
 <h2>I) Select Function <a id="Select Function"></a></h2>
 <div id="example-1" class="section level3">
 <h3>Example 1</h3>
-<p>The purpose of <em>Example 1</em> is to select specific variables of the airquality dataset, and display the subset of data in the exact order shown within the function (e.g- “Month, Day, Ozone, Temp”). Using DPLYR (a) this is done using the select function, and using Base R this is done by subsetting the airquality dataset using the which function.</p>
+<p>The purpose of <em>Example 1</em> is to select specific variables of the airquality dataset, and display the subset of data in the exact order shown within the function (e.g- “Month, Day, Ozone, Temp”). Using DPLYR (a) this is done using the select function, and using Base R (b) this is done by subsetting the airquality dataset using the which function.</p>
 <p><strong>Example 1(a): DPLYR</strong></p>
 <pre class="r"><code>select(airquality, Month, Day, Ozone, Temp)</code></pre>
 <pre><code>## # A tibble: 153 x 4
@@ -215,7 +215,7 @@ airquality</code></pre>
 </div>
 <div id="example-2" class="section level3">
 <h3>Example 2</h3>
-<p>The purpose of <em>Example 2</em> is to display the subset of data in the exact order shown within the function (e.g- “Temp, Month, Day”). Using DPLYR (a) this is done using the select function and ‘:’ notation, which means show all variables between the variable on the left of the colon and the variable on the right of colon. Using Base R, this is done by subsetting the airquality dataset using the which function.</p>
+<p>The purpose of <em>Example 2</em> is to display the subset of data in the exact order shown within the function (e.g- “Temp, Month, Day”). Using DPLYR (a) this is done using the select function and ‘:’ notation, which means show all variables between the variable on the left of the colon and the variable on the right of colon. Using Base R (b), this is done by subsetting the airquality dataset using the which function.</p>
 <p><strong>Example 2(a): DPLYR</strong></p>
 <pre class="r"><code>select(airquality, Temp:Day)</code></pre>
 <pre><code>## # A tibble: 153 x 3
